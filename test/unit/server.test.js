@@ -12,8 +12,8 @@ import {
   getServerHTMLTemplate,
 } from '../../packages/docsify-server-renderer/index';
 
-describe('pacakges/docsify-server-render', function() {
-  it('renders content', async function() {
+describe('pacakges/docsify-server-render', function () {
+  it('renders content', async function () {
     const renderer = new Renderer({
       template: getServerHTMLTemplate(),
       config: {

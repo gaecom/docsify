@@ -1,5 +1,5 @@
 const path = require('path');
-const { globals: serverGlobals } = require('./test/config/server.js');
+const { globals: serverGlobals } = require('./test/config/server.cjs');
 
 const sharedConfig = {
   errorOnDeprecated: true,

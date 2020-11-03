@@ -2,7 +2,7 @@ const docsifyInit = require('../helpers/docsify-init');
 
 // Suite
 // -----------------------------------------------------------------------------
-describe('Search Plugin Tests', function() {
+describe('Search Plugin Tests', function () {
   // Tests
   // ---------------------------------------------------------------------------
   test('search readme', async () => {

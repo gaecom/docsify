@@ -1,3 +1,11 @@
+const jestConfig = require('./jest.config.cjs');
+
+const testGlobals = {};
+
+for (const key of Object.keys(jestConfig.globals)) {
+  testGlobals[key] = 'readonly';
+}
+
 module.exports = {
   root: true,
   parser: 'babel-eslint',
@@ -39,6 +47,7 @@ module.exports = {
     'no-var': ['error'],
     'no-void': ['error'],
     'no-with': ['error'],
+    'no-prototype-builtins': 'off',
     radix: ['error'],
     'spaced-comment': ['error', 'always'],
     strict: ['error', 'global'],
@@ -60,4 +69,16 @@ module.exports = {
     $docsify: 'writable',
     dom: 'writable',
   },
+
+  overrides: [
+    {
+      files: ['test/**/*.js', '**/*.test.js'],
+      extends: ['plugin:jest/recommended', 'plugin:jest/style'],
+      globals: testGlobals,
+    },
+    {
+      files: ['test/e2e/**/*.test.js'],
+      extends: ['plugin:jest-playwright/recommended'],
+    },
+  ],
 };

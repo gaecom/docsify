@@ -1,5 +1,5 @@
-const browserSync = require('browser-sync').create();
 const path = require('path');
+const browserSync = require('browser-sync').create();
 
 const hasStartArg = process.argv.includes('--start');
 
@@ -14,7 +14,7 @@ function startServer(options = {}, cb = Function.prototype) {
     middleware: [
       {
         route: '/_blank.html',
-        handle: function(req, res, next) {
+        handle: function (req, res, next) {
           res.setHeader('Content-Type', 'text/html');
           res.end('');
           next();
@@ -42,7 +42,7 @@ function startServer(options = {}, cb = Function.prototype) {
     snippetOptions: {
       rule: {
         match: /<\/body>/i,
-        fn: function(snippet, match) {
+        fn: function (snippet, match) {
           // Override changelog alias to load local changelog (see routes)
           const injectJS = `
             <script>
@@ -77,7 +77,7 @@ function startServer(options = {}, cb = Function.prototype) {
 }
 
 async function startServerAsync() {
-  await new Promise((resolve, reject) => {
+  await new Promise((resolve) => {
     startServer({}, () => {
       console.log('\n');
       resolve();
